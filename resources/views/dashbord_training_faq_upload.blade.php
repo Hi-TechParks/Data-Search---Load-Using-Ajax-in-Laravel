@@ -15,6 +15,8 @@
                     <div class="row form-group">
                         <div class="col-md-8 col-md-offset-2">
                             <label>Select Program *</label>
+							
+							<!-- Ajax load send data from this select id -->
                             <select name="training" required="" id="training" class="form-control">
                                 <option value="">Select Program</option>
                                 <option disabled="" style="color: #4267B2;">--- Training ---</option>
@@ -49,6 +51,8 @@
                     <div class="row form-group">
                         <div class="col-md-8 col-md-offset-2">
                             <label>FAQ Number *</label>
+							
+							<!-- Ajax load receive data inside this div id -->
                             <div id="faq_no">
                                 <input type="text" id="" placeholder="FAQ Number" name="number" value="@if(isset($_GET['faq_no'])) {{$_GET['faq_no']+1}} @endif" required="" class="form-control">
                             </div>
@@ -143,3 +147,34 @@
     });
  });
 </script>
+
+
+
+<!-- Action on click submit button -->
+<!-- 
+<script>
+ jQuery(document).ready(function(){
+	jQuery('#ajaxSubmit').click(function(e){
+	   e.preventDefault();
+	   $.ajaxSetup({
+		  headers: {
+			  'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+		  }
+	  });
+
+	jQuery.ajax({
+	   url: "{{ url('/grocery/post') }}",
+	   method: 'post',
+	   data: {
+		  name: jQuery('#name').val(),
+		  type: jQuery('#type').val(),
+		  price: jQuery('#price').val()
+	   },
+	   success: function(result){
+		  jQuery('#response-msg').show();
+		  jQuery('#response-msg').html(result.values);
+	   }});
+	});
+ });
+</script>
+ -->

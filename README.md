@@ -15,3 +15,9 @@ CSRF Token for Laravel Form submit verification
 Route::post('/admin/faq/number','AjaxController@store');
 
 Ajax Route for search must be as a post method
+
+
+
+*** Config - config/database.php ***
+
+Database configuration is optional

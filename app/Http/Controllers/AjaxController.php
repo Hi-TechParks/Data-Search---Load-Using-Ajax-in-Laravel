@@ -42,6 +42,8 @@ class AjaxController extends Controller
         $type = $request->type;
         $price = $request->price;
         $training = $request->training;*/
+		
+		// must use get option for get data from ajax
         $training = $request->get('training');
 
 
@@ -53,7 +55,9 @@ class AjaxController extends Controller
                             ->get();
 
         
-
+		// You can view data by using another child view page as render data.
+		// check the codes below and faq_no view page as sample
+		
         /*$data = view('faq_no',compact('pro_faqs_no'))->render();*/
         /*$data = view('faq_no')->render();*/
 
@@ -68,7 +72,8 @@ class AjaxController extends Controller
             $data = '<input type="text" id="faq_no" placeholder="FAQ Number" name="number" value="1" required="" class="form-control">';
         }
         
-
+		// Send data directly controller to view using json
+		// You can use the same method for sending render view page data to parent view
         return response()->json(['values'=> $data]);
     }
 
